@@ -56,7 +56,7 @@ tracks/3/keys = {
 "values": [ 0.0, -45.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=2]
 resource_name = "swingleft"
 length = 1.5
 step = 0.5
@@ -109,7 +109,7 @@ tracks/3/keys = {
 "values": [ 0.0, -45.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=3]
 resource_name = "swingright"
 length = 1.5
 step = 0.5
@@ -162,7 +162,7 @@ tracks/3/keys = {
 "values": [ 0.0, -45.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=4]
 resource_name = "swingup"
 length = 1.5
 step = 0.5
@@ -219,17 +219,17 @@ tracks/3/keys = {
 extents = Vector2( 2, 8 )
 
 [node name="sword" type="Node2D"]
-position = Vector2( 8, 8 )
-rotation = 2.35619
+position = Vector2( 8, -8 )
+rotation = 0.785398
 z_index = -1
 script = ExtResource( 2 )
 
 [node name="anim" type="AnimationPlayer" parent="."]
 playback_speed = 10.0
 anims/swingdown = SubResource( 1 )
-anims/swingleft = SubResource( 6 )
-anims/swingright = SubResource( 7 )
-anims/swingup = SubResource( 8 )
+anims/swingleft = SubResource( 2 )
+anims/swingright = SubResource( 3 )
+anims/swingup = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

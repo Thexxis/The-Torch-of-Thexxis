@@ -16,6 +16,10 @@ func _physics_process(delta):
 			state_default()
 		"swing":
 			state_swing()
+		"fire":
+			state_fire()
+		"throw":
+			state_throw()
 	
 	keys = min(keys, 9)
 
@@ -41,8 +45,24 @@ func state_default():
 	
 	if Input.is_action_pressed("a"):
 		use_item(preload("res://items/sword.tscn"))
+	if Input.is_action_pressed("b"):
+		use_item(preload("res://items/crossbow.tscn"))
+#	if Input.is_action_pressed("c"):
+#		use_item(preload("res://item/bomb.tscn))
 
 func state_swing():
+	anim_switch("idle")
+	movement_loop()
+	damage_loop()
+	movedir = dir.center
+
+func state_fire():
+	anim_switch("idle")
+	movement_loop()
+	damage_loop()
+	movedir = dir.center
+
+func state_throw():
 	anim_switch("idle")
 	movement_loop()
 	damage_loop()
