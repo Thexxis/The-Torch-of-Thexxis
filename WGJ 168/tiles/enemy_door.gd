@@ -6,7 +6,6 @@ onready var player = get_node("../player")
 func _ready():
 	$anim.play("open")
 	$CollisionShape2D.disabled = true
-	# $Sprite.visible = false
 
 func _process(delta):
 	if camera.grid_pos == camera.get_grid_pos(global_position):

@@ -12,7 +12,6 @@
 [node name="Node" type="Node"]
 
 [node name="hud" parent="." instance=ExtResource( 5 )]
-layer = -1
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 85, 80 )
