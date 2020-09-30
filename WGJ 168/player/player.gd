@@ -7,7 +7,7 @@ func _init():
 	MAXHEALTH = 16
 	health = 3
 	TYPE = "PLAYER"
-	SPEED = 70
+	SPEED = 60
 	DAMAGE = null
 
 func _physics_process(delta):
@@ -44,11 +44,12 @@ func state_default():
 		anim_switch("idle")
 	
 	if Input.is_action_pressed("a"):
-		use_item(preload("res://items/sword.tscn"))
+		use_weapon(preload("res://items/sword.tscn"))
 	if Input.is_action_pressed("b"):
-		use_item(preload("res://items/crossbow.tscn"))
-#	if Input.is_action_pressed("c"):
-#		use_item(preload("res://item/bomb.tscn))
+		use_weapon(preload("res://items/crossbow.tscn"))
+		fire_projectile(preload("res://items/bolt.tscn"))
+	if Input.is_action_just_pressed("c"):
+		place_bomb(preload("res://items/bomb.tscn"))
 
 func state_swing():
 	anim_switch("idle")

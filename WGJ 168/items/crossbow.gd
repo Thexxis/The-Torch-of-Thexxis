@@ -1,7 +1,8 @@
 extends Node2D
 
+
 var TYPE = null
-const DAMAGE = 1
+const DAMAGE = null
 
 var maxamount = 1
 

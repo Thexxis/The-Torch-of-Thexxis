@@ -13,6 +13,7 @@ func _init():
 func _ready():
 	$anim.play("default")
 	movedir = dir.rand()
+	movedir = dir.rand()
 
 func _physics_process(delta):
 	movement_loop()

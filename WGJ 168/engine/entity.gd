@@ -66,12 +66,23 @@ func damage_loop():
 			hitstun = 10
 			knockdir = global_transform.origin - body.global_transform.origin
 
-func use_item(item):
-	var newitem = item.instance()
-	newitem.add_to_group(str(item, self))
-	add_child(newitem)
-	if get_tree().get_nodes_in_group(str(item, self)).size() > newitem.maxamount:
-		newitem.queue_free()
+func use_weapon(weapon):
+	var newweapon = weapon.instance()
+	newweapon.add_to_group(str(weapon, self))
+	add_child(newweapon)
+	if get_tree().get_nodes_in_group(str(weapon, self)).size() > newweapon.maxamount:
+		newweapon.queue_free()
+
+func fire_projectile(projectile):
+	var newprojectile = projectile.instance()
+	newprojectile.add_to_group(str(projectile, self))
+	add_child(newprojectile)
+
+func place_bomb(bomb):
+	var newbomb = bomb.instance()
+	newbomb.add_to_group(str(bomb, self))
+	owner.add_child(newbomb)
+	newbomb.global_position = global_position
 
 func instance_scene(scene):
 	var new_scene = scene.instance()
