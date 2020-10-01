@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var TYPE = null
 const DAMAGE = 1
-const SPEED = 2
+const SPEED = 2.5
 var direction
 onready var parent = get_parent()
 

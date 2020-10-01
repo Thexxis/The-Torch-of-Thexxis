@@ -82,7 +82,9 @@ func place_bomb(bomb):
 	var newbomb = bomb.instance()
 	newbomb.add_to_group(str(bomb, self))
 	owner.add_child(newbomb)
-	newbomb.global_position = global_position
+	newbomb.global_position = global_position # + Vector2(0, 16)
+	if get_tree().get_nodes_in_group(str(bomb, self)).size() > newbomb.maxamount:
+		newbomb.queue_free()
 
 func instance_scene(scene):
 	var new_scene = scene.instance()

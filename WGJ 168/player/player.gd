@@ -2,6 +2,7 @@ extends entity
 
 var state = "default"
 var keys = 0
+var role
 
 func _init():
 	MAXHEALTH = 16
@@ -9,6 +10,19 @@ func _init():
 	TYPE = "PLAYER"
 	SPEED = 60
 	DAMAGE = null
+
+func _ready():
+	randomize()
+	var role = randi() % 3
+	if role == 0:
+		print("Knight!")
+	elif role == 1:
+		print("Ranger!")
+	elif role == 2:
+		print("Grenadier!")
+	else:
+		print("SUPER")
+
 
 func _physics_process(delta):
 	match state:
@@ -44,12 +58,30 @@ func state_default():
 		anim_switch("idle")
 	
 	if Input.is_action_pressed("a"):
-		use_weapon(preload("res://items/sword.tscn"))
+		match role:
+			0:
+				use_weapon(preload("res://items/sword.tscn"))
+			1:
+				use_weapon(preload("res://items/crossbow.tscn"))
+				fire_projectile(preload("res://items/bolt.tscn"))
+			2:
+				place_bomb(preload("res://items/bomb.tscn"))
+			_:
+				use_weapon(preload("res://items/sword.tscn"))
 	if Input.is_action_pressed("b"):
-		use_weapon(preload("res://items/crossbow.tscn"))
-		fire_projectile(preload("res://items/bolt.tscn"))
+		match role:
+			0, 1, 2:
+				pass
+				# use_secondary()
+			_:
+				use_weapon(preload("res://items/crossbow.tscn"))
+				fire_projectile(preload("res://items/bolt.tscn"))
 	if Input.is_action_just_pressed("c"):
-		place_bomb(preload("res://items/bomb.tscn"))
+		match role:
+			0, 1, 2:
+				pass
+			_:
+				place_bomb(preload("res://items/bomb.tscn"))
 
 func state_swing():
 	anim_switch("idle")
